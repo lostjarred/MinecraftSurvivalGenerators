@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 	    public static final Logger LOGGER = LogManager.getLogger(MODID);
 	    
-	    public static final WorldType SURVIVAL_SNOW_WORLDTYPE = new WorldTypeSurvivalSnow("Surival Snow");
+	    public static final WorldType SURVIVAL_SNOW_WORLDTYPE = new WorldTypeSurvivalSnow("Survival Snow");
 	    
 	    @EventHandler
 	    public void init(FMLInitializationEvent event)
