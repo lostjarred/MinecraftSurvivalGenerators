@@ -3,6 +3,7 @@ package com.aa11lo.survivalgenerators.world;
 import com.aa11lo.survivalgenerators.modinit.ModBiomes;
 import com.aa11lo.survivalgenerators.world.gen.ChunkGeneratorOverworldSurvival;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeProvider;
@@ -22,6 +23,6 @@ public class WorldTypeSurvivalSnow extends WorldType {
 	@Override
 	public net.minecraft.world.gen.IChunkGenerator getChunkGenerator(World world, String generatorOptions)
     {
-		return new ChunkGeneratorOverworldSurvival(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), generatorOptions);
+		return new ChunkGeneratorOverworldSurvival(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), generatorOptions, Blocks.PACKED_ICE);
     }
 }
