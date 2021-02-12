@@ -13,7 +13,7 @@ public class BiomeSurvivalSnow extends BiomeSurvival {
 	public BiomeSurvivalSnow(String registryname) {
 		super(new BiomeProperties(registryname)
 				.setTemperature(0.0f)
-				.setRainfall(0.5f)
+				.setRainfall(0.9f)
 				.setSnowEnabled()
 				);
 		this.topBlock = Blocks.SNOW.getDefaultState();
@@ -33,10 +33,5 @@ public class BiomeSurvivalSnow extends BiomeSurvival {
 		return survialbiomedecorator;
 		
 	}
-	
-	public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal)
-    {
-		super.genTerrainBlocks(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
-		
-    }
+
 }
