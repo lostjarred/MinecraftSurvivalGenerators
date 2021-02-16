@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.aa11lo.survivalgenerators.modinit.ModBiomes;
 import com.aa11lo.survivalgenerators.world.WorldTypeSurvivalSnow;
+import com.lo93.locore.init.registry.BiomeRegistry;
 
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
@@ -23,6 +24,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 	    public static final Logger LOGGER = LogManager.getLogger(MODID);
 	    
+	    public static final BiomeRegistry BIOMEREGISTRY = new BiomeRegistry(LOGGER);
+	    
 	    public static final WorldType SURVIVAL_SNOW_WORLDTYPE = new WorldTypeSurvivalSnow("Survival Snow");
 	    
 	    @EventHandler
@@ -35,7 +38,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    public static class RegistrationHandler {
 	    	@SubscribeEvent
 	    	public static void registerbiomes(RegistryEvent.Register<Biome> event) {
-	    		ModBiomes.register(event.getRegistry());
+	    		BIOMEREGISTRY.RegisterBiome(event.getRegistry(), ModBiomes.BIOME_SURVIVAL_SNOW);
 	    	}
 	    }
 	}
