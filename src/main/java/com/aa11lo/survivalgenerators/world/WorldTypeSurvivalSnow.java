@@ -27,16 +27,4 @@ public class WorldTypeSurvivalSnow extends WorldType{
 			return super.createChunkGenerator(world);
 		}
 	}
-	
-	/*
-	@Override
-	public BiomeProvider getBiomeProvider(World world) {
-		return new BiomeProviderSingle(ModBiomes.BIOME_SURVIVAL_SNOW);
-	}
-	
-	@Override
-	public net.minecraft.world.gen.IChunkGenerator getChunkGenerator(World world, String generatorOptions)
-    {
-		return new ChunkGeneratorOverworldSurvival(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), generatorOptions, Blocks.PACKED_ICE);
-    }*/
 }

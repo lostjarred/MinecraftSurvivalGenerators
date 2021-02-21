@@ -41,19 +41,6 @@ public class BiomeSurvivalSnow extends BiomeSurvival {
 	    this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 100, 4, 4));
 	    this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
 	    this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
-	}
-	@Override
-	public void buildSurface(Random random, IChunk chunkIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed) {
-		super.buildSurface(random, chunkIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed);
-		int blockx = x;
-		int blockz = z;
-		for (int blocky = startHeight; blocky > 0; blocky--) {
-			if (blocky > 26) {
-				BlockPos curblockpos = new BlockPos(blockx, blocky, blockz);
-				if(chunkIn.getBlockState(curblockpos) == Blocks.STONE.getDefaultState()) {
-					chunkIn.setBlockState(curblockpos, Blocks.PACKED_ICE.getDefaultState(), false);
-				}
-			}
-		}
+	    setStoneReplacement(Blocks.PACKED_ICE.getDefaultState(), 26);
 	}
 }
