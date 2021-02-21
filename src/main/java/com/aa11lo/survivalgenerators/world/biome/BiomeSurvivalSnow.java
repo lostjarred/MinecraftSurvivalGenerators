@@ -1,37 +1,37 @@
 package com.aa11lo.survivalgenerators.world.biome;
 
-import java.util.Random;
-
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeDecorator;
-import net.minecraft.world.chunk.ChunkPrimer;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
 public class BiomeSurvivalSnow extends BiomeSurvival {
 
 	public BiomeSurvivalSnow(String registryname) {
-		super(new BiomeProperties(registryname)
-				.setTemperature(0.0f)
-				.setRainfall(0.9f)
-				.setSnowEnabled()
+		super(
+				(new Biome.Builder()
+						.surfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)
+						.precipitation(Biome.RainType.SNOW)
+						.category(Biome.Category.TAIGA)
+						.depth(0.2F)
+						.scale(0.2F)
+						.temperature(-0.5F)
+						.downfall(0.8F)
+						.waterColor(4020182)
+						.waterFogColor(329011)
+						.parent((String)null)
+						)
 				);
-		this.topBlock = Blocks.SNOW.getDefaultState();
-		this.fillerBlock = Blocks.SNOW.getDefaultState();
-		this.setRegistryName(registryname);
+		setRegistryName(registryname);
+		DefaultBiomeFeatures.addFreezeTopLayer(this);
+		this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SPIDER, 100, 4, 4));
+	    this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ZOMBIE, 95, 4, 4));
+	    this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
+	    this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SKELETON, 100, 4, 4));
+	    this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.CREEPER, 100, 4, 4));
+	    this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 100, 4, 4));
+	    this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
+	    this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
 	}
-	
-	@Override
-	public BiomeDecorator createBiomeDecorator() {
-		
-		BiomeDecorator survialbiomedecorator = new BiomeDecoratorSurvival();
-		
-		survialbiomedecorator.treesPerChunk=0;
-		survialbiomedecorator.flowersPerChunk=0;
-		survialbiomedecorator.grassPerChunk=0;
-		
-		return survialbiomedecorator;
-		
-	}
-
 }

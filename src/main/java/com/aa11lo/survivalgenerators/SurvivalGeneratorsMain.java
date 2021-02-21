@@ -5,17 +5,16 @@ import org.apache.logging.log4j.Logger;
 
 import com.aa11lo.survivalgenerators.modinit.ModBiomes;
 import com.aa11lo.survivalgenerators.world.WorldTypeSurvivalSnow;
-import com.lo93.locore.init.registry.BiomeRegistry;
 
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
-@Mod(modid = SurvivalGeneratorsMain.MODID, name = SurvivalGeneratorsMain.NAME, version = SurvivalGeneratorsMain.VERSION)
+
+@Mod("survivalgenerators")
 	public class SurvivalGeneratorsMain
 	{
 	    public static final String MODID = "survivalgenerators";
@@ -24,21 +23,22 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 	    public static final Logger LOGGER = LogManager.getLogger(MODID);
 	    
-	    public static final BiomeRegistry BIOMEREGISTRY = new BiomeRegistry(LOGGER);
+	    //public static final BiomeRegistry BIOMEREGISTRY = new BiomeRegistry(LOGGER);
 	    
 	    public static final WorldType SURVIVAL_SNOW_WORLDTYPE = new WorldTypeSurvivalSnow("Survival Snow");
 	    
-	    @EventHandler
-	    public void init(FMLInitializationEvent event)
+	    private void setup(final FMLCommonSetupEvent event)
 	    {
 	    	LOGGER.info(NAME + " Is loading");
 	    }
 	    
-	    @Mod.EventBusSubscriber
+	    @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 	    public static class RegistrationHandler {
 	    	@SubscribeEvent
 	    	public static void registerbiomes(RegistryEvent.Register<Biome> event) {
-	    		BIOMEREGISTRY.RegisterBiome(event.getRegistry(), ModBiomes.BIOME_SURVIVAL_SNOW);
+	    		//BIOMEREGISTRY.RegisterBiome(event.getRegistry(), ModBiomes.BIOME_SURVIVAL_SNOW);
+	    		event.getRegistry().register(ModBiomes.BIOME_SURVIVAL_SNOW);
+	    		LOGGER.info("registed biome");
 	    	}
 	    }
 	}
