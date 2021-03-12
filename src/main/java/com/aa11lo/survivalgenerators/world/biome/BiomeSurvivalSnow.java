@@ -49,8 +49,6 @@ public class BiomeSurvivalSnow extends BiomeSurvival {
             int j = rand.nextInt(16) + 8;
             BlockPos blockpos = worldIn.getHeight(pos.add(i, 0, j)).up();
             (new WorldGenLightTower()).generate(worldIn, rand, blockpos);
-            //debug
-            SurvivalGeneratorsMain.LOGGER.info("Spawned light tower at" + " " + blockpos.getX() + " " + blockpos.getY() + " " + blockpos.getZ());
 		}
     }
 

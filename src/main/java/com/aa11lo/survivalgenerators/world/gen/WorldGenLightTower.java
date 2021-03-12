@@ -32,6 +32,8 @@ public class WorldGenLightTower extends WorldGenerator {
 		int x = position.getX();
 		int y = position.getY();
 		int z = position.getZ();
+		//debug
+        SurvivalGeneratorsMain.LOGGER.info("Attempting to spawn light tower at" + " " + x + " " + y + " " + z);
 		if (canSpawnHere(worldIn, x, y, z, 7, 11, 7)) {
 			createBase(worldIn, x, y, z);
 			createPlatform(worldIn, x, (y + 10), z);
