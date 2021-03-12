@@ -1,6 +1,13 @@
 package com.aa11lo.survivalgenerators.world.biome;
 
+import java.util.Random;
+
+import com.aa11lo.survivalgenerators.SurvivalGeneratorsMain;
+import com.aa11lo.survivalgenerators.world.gen.WorldGenLightTower;
+
 import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 
 
@@ -31,5 +38,20 @@ public class BiomeSurvivalSnow extends BiomeSurvival {
 		return survialbiomedecorator;
 		
 	}
+	
+	@Override
+	public void decorate(World worldIn, Random rand, BlockPos pos)
+    {
+		super.decorate(worldIn, rand, pos);
+		//spawn tower decoration normally 1000
+		if (rand.nextInt(1000) == 0) {
+			int i = rand.nextInt(16) + 8;
+            int j = rand.nextInt(16) + 8;
+            BlockPos blockpos = worldIn.getHeight(pos.add(i, 0, j)).up();
+            (new WorldGenLightTower()).generate(worldIn, rand, blockpos);
+            //debug
+            SurvivalGeneratorsMain.LOGGER.info("Spawned light tower at" + " " + blockpos.getX() + " " + blockpos.getY() + " " + blockpos.getZ());
+		}
+    }
 
 }
