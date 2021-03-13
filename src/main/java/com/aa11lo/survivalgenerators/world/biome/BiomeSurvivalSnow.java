@@ -3,6 +3,7 @@ package com.aa11lo.survivalgenerators.world.biome;
 import java.util.Random;
 
 import com.aa11lo.survivalgenerators.SurvivalGeneratorsMain;
+import com.aa11lo.survivalgenerators.world.gen.WorldGenLightPost;
 import com.aa11lo.survivalgenerators.world.gen.WorldGenLightTower;
 
 import net.minecraft.init.Blocks;
@@ -49,6 +50,14 @@ public class BiomeSurvivalSnow extends BiomeSurvival {
             int j = rand.nextInt(16) + 8;
             BlockPos blockpos = worldIn.getHeight(pos.add(i, 0, j)).up();
             (new WorldGenLightTower()).generate(worldIn, rand, blockpos);
+		}
+		
+		//spawn light post normal 600
+		if (rand.nextInt(600) == 0) {
+			int i = rand.nextInt(16) + 8;
+            int j = rand.nextInt(16) + 8;
+            BlockPos blockpos = worldIn.getHeight(pos.add(i, 0, j)).up();
+            (new WorldGenLightPost()).generate(worldIn, rand, blockpos);
 		}
     }
 
