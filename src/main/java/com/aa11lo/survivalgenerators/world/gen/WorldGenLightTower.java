@@ -123,7 +123,7 @@ public class WorldGenLightTower extends WorldGenerator {
 		for(int y = yin; y < (yin + 3); y++) {
 			for(int x = xin; x < (xin + 3); x++) {
 				for(int z = zin; z < (zin + 3); z++) {
-					worldIn.setBlockState(new BlockPos(x, y, z), glowstone);
+					worldIn.setBlockState(new BlockPos(x, y, z), glowstone, 1);
 				}
 			}
 		}

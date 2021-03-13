@@ -38,7 +38,7 @@ public class WorldGenLightPost extends WorldGenerator {
 		worldIn.setBlockState(new BlockPos((posx + 1), (posy + 2), (posz + 1)), fence);
 		worldIn.setBlockState(new BlockPos((posx + 1), (posy + 3), (posz + 1)), fence);
 		
-		worldIn.setBlockState(new BlockPos((posx + 1), (posy + 4), (posz + 1)), glowstone);
+		worldIn.setBlockState(new BlockPos((posx + 1), (posy + 4), (posz + 1)), glowstone, 1);
 		worldIn.setBlockState(new BlockPos((posx + 1), (posy + 5), (posz + 1)), fence);
 		
 		//
